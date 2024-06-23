@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import getRandomImages from "./imageArrayGenerator";
 
 import lodash from "lodash";
 
@@ -28,8 +29,8 @@ function checkWin(imageArray: ImageObject[]): boolean {
   return isWin;
 }
 
-const MemoryGame = ({ testImages }: MemoryGameProps) => {
-  const images = createImageArray(testImages);
+const MemoryGame = () => {
+  const images = createImageArray(getRandomImages());
   const [imageArray, setImageArray] = useState<ImageObject[]>(images);
   const [prevImage, setPrevImage] = useState<ImageObject | null>();
   const [isWin, setIsWin] = useState<boolean>(false);
