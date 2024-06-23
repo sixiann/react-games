@@ -112,7 +112,6 @@ const Hangman: React.FC = () => {
   const [isWin, setIsWin] = useState<boolean>(false);
   const [isLost, setIsLost] = useState<boolean>(false);
 
-
   const handleKeyClick = (index: number): void => {
     const key = keyboardArray[index];
     if (key.inWord) {
@@ -128,17 +127,19 @@ const Hangman: React.FC = () => {
     newKeyboardArray[key.index].guessed = true;
     setKeyboardArray(newKeyboardArray);
 
-    const win = checkWin(wordArray)
+    const win = checkWin(wordArray);
     if (win) {
       setIsWin(true);
     }
 
-    if (attemptsLeft === 1 && !win && !key.inWord){
-        setIsLost(true);
-        setWordArray(wordArray.map(word => ({
-            ...word,
-            guessed: true
-        })))
+    if (attemptsLeft === 1 && !win && !key.inWord) {
+      setIsLost(true);
+      setWordArray(
+        wordArray.map((word) => ({
+          ...word,
+          guessed: true,
+        }))
+      );
     }
   };
 
@@ -163,12 +164,12 @@ const Hangman: React.FC = () => {
         <h3>Wrong guesses left: {attemptsLeft}</h3>
       )}
 
-      {isLost && 
-      <>
-        <h3>GAME OVER</h3>
-        <button onClick={() => handleReplayClick()}>Replay</button>
-      </>
-      }
+      {isLost && (
+        <>
+          <h3>GAME OVER</h3>
+          <button onClick={() => handleReplayClick()}>Replay</button>
+        </>
+      )}
 
       <HangmanWord wordArray={wordArray} />
       <Keyboard keyboardArray={keyboardArray} handleKeyClick={handleKeyClick} />

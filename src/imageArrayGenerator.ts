@@ -14,8 +14,19 @@ const images:string[] = [
     "https://ca-times.brightspotcdn.com/dims4/default/43a13ce/2147483647/strip/true/crop/4480x6720+0+0/resize/2000x3000!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F02%2F97%2F0176bfbd448da80b56b05b6e18e9%2F1366455-env-dua-lipa-photo-10.jpg",
     "https://i8.amplience.net/i/naras/Dua-Lipa-2024-GRAMMYs-Performance",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStSG9uOKsq303RE22Hs6hJIzDbVxl74niskg&s",
-    "https://static.wikia.nocookie.net/disney/images/8/86/Sabrina_Carpenter.jpg/revision/latest?cb=20191226235526",
     "https://i.pinimg.com/736x/da/4a/2c/da4a2cd5540eeff938d08a7ca31a68a8.jpg",
+    "https://miamihighnews.com/wp-content/uploads/2022/05/Playboi_Carti-604x900.webp",
+    "https://www.mensjournal.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTk5MzM0MzQyNDI4NzMxMzQy/michael-b.jpg",
+    "https://cdn.shopify.com/s/files/1/0434/4749/files/Thor_Haircut_1_grande.jpg?v=1575383188",
+    "https://6.soompi.io/wp-content/uploads/image/eede4bbd419647faa049931eb3184d08.jpeg?s=900x600&e=t",
+    "https://ichef.bbci.co.uk/news/1024/branded_news/16F61/production/_132094049_tyla_reid.jpg",
+    "https://www.instyle.com/thmb/yeWJlnV28qS4IJBRuAYtGOaeTJE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/MeganTheeStallionRevlonColorStay1-0c3a363933bc404392dab055f284a519.jpg",
+    "https://www.byrdie.com/thmb/6xAGxrlcGPG0GlL5UgNKQe_Y3gY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/meganhair3-ec021fd767b440489b85cda948b70fc0.jpg",
+    "https://www.billboard.com/wp-content/uploads/2024/03/Megan-Thee-Stallion-mean-girls-billboard-1548.jpg?w=942&h=623&crop=1",
+    "https://m.media-amazon.com/images/I/71w91Q9hhPL._AC_UF1000,1000_QL80_.jpg",
+
+
+
 ]
 
 const getRandomImages = ():string[] => {

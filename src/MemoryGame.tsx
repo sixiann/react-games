@@ -10,10 +10,6 @@ type ImageObject = {
   flipped: boolean;
 };
 
-type MemoryGameProps = {
-  testImages: string[];
-};
-
 function createImageArray(images: string[]): ImageObject[] {
   const newImageArray = lodash.shuffle([...images, ...images]);
   const imageArray = newImageArray.map((img, id) => ({
@@ -62,9 +58,25 @@ const MemoryGame = () => {
     }
   }
 
+  function handleReplayClick():void{
+    const images = createImageArray(getRandomImages());
+    setImageArray(images);
+    setPrevImage(null);
+    setIsWin(false);
+  }
+
   return (
     <>
       <h1>Memory Game</h1>
+      {isWin && 
+      (<>
+      <h2> Congratulations!</h2>
+      <button 
+      className="replay"
+      onClick = {() => handleReplayClick()}>Replay</button>
+      </>
+      )
+      }
       <div className="grid-container">
         {imageArray.map(({ id, img, flipped }) =>
           flipped ? (
@@ -77,7 +89,6 @@ const MemoryGame = () => {
           )
         )}
       </div>
-      {isWin && <h2> Congratulations!</h2>}
     </>
   );
 };
