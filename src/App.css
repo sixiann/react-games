@@ -29,3 +29,41 @@
   background-color: rgb(147, 228, 147);
   border: 0;
 }
+
+.keyboard{
+  width: 600px;
+}
+
+.keyboard-button{
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  margin-right: 5px;
+  margin-top: 5px;
+  color: black;
+}
+
+.keyboard-button:hover{
+  background-color: rgb(142, 160, 238);
+  border: 0;
+}
+
+.hangman-word{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.word-space{
+  margin-right: 20px;
+}
+
+.green{
+  background-color: rgb(142, 212, 142);
+  pointer-events: none;
+}
+
+.red{
+  background-color: rgb(255, 144, 144);
+  pointer-events: none;
+}

@@ -1,5 +1,7 @@
 
 import MemoryGame from "./MemoryGame";
+import Hangman from "./Hangman";
+import "./App.css"
 
 const testImages: string[] = [
   "https://images.unsplash.com/photo-1626808642875-0aa545482dfb",
@@ -11,7 +13,8 @@ const testImages: string[] = [
 ];
 
 function App() {
-  return <MemoryGame testImages = {testImages}/>
+  // return <MemoryGame testImages = {testImages}/>
+  return <Hangman/>
 }
 
 export default App;
