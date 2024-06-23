@@ -4,7 +4,7 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [selectedGame, setSelectedGame] = useState<string>("MemoryGame");
+  const [selectedGame, setSelectedGame] = useState<string>("Hangman");
 
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedGame(event.target.value);
@@ -13,10 +13,10 @@ function App() {
   return (
     <div>
       <select value={selectedGame} onChange={handleChange}>
-        <option value="MemoryGame">Memory Game</option>
         <option value="Hangman">Hangman</option>
+        <option value="MemoryGame">Memory Game</option>
       </select>
-      {selectedGame === "MemoryGame" ? <MemoryGame /> : <Hangman />}
+      {selectedGame === "Hangman" ? <Hangman /> : <MemoryGame />}
     </div>
   );
 }

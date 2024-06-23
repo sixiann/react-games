@@ -133,7 +133,7 @@ const Hangman: React.FC = () => {
       setIsWin(true);
     }
 
-    if (attemptsLeft === 1 && !win){
+    if (attemptsLeft === 1 && !win && !key.inWord){
         setIsLost(true);
         setWordArray(wordArray.map(word => ({
             ...word,

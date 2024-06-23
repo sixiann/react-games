@@ -4,6 +4,7 @@
   text-align: center;
 }
 
+/* memory game */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -30,8 +31,11 @@
   border: 0;
 }
 
+/* hangman */
 .keyboard{
-  width: 600px;
+  width: 90%;
+  margin: 0 auto;
+
 }
 
 .keyboard-button{
