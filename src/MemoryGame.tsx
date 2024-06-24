@@ -78,7 +78,7 @@ const MemoryGame = () => {
         </div>
       )}
       
-      <div className="mt-6 mx-auto grid grid-cols-3 md:grid-cols-4 gap-4 w-5/6 md:w-3/6 auto-cols-max">
+      <div className="mt-6 mx-auto grid grid-cols-3 md:grid-cols-4 gap-4 w-5/6 sm:w-3/6 auto-cols-max">
         {imageArray.map(({ id, img, flipped }) =>
           flipped ? (
             <img
@@ -89,7 +89,7 @@ const MemoryGame = () => {
           ) : (
             <button
               key={id}
-              className=" bg-pink-300 hover:bg-pink-400 hover:border-0 aspect-square	"
+              className=" bg-pink-300 hover:bg-pink-400 hover:border-0 aspect-square"
               onClick={() => handleButtonClick({ id, img, flipped })}
             ></button>
           )

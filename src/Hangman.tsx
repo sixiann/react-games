@@ -144,6 +144,8 @@ const Hangman: React.FC = () => {
       setIsWin(true);
     }
 
+    //setIsWin(checkWin(wordArray))
+
     if (attemptsLeft === 1 && !win && !key.inWord) {
       setIsLost(true);
       setWordArray(
@@ -177,7 +179,8 @@ const Hangman: React.FC = () => {
         <Description text={`Wrong guesses left: ${attemptsLeft}`} />
       )}
 
-      {isLost && (
+      {/* if attemptsLeft === 0 && !isWin {} */}
+      {isLost && ( 
         <>
           <Description text="GAME OVER" />
           <ReplayButton handleReplayClick={handleReplayClick} />
