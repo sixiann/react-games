@@ -3,7 +3,7 @@ const ReplayButton: React.FC<{ handleReplayClick: () => void }> = ({
 }) => {
   return (
     <button
-      className="bg-pink-300 hover:bg-pink-400 border-0 hover:border-0 text-black mt-3 py-1"
+      className="hover:bg-pink-300 bg-pink-400 border-0 hover:border-0 text-white mt-3 py-1"
       onClick={() => handleReplayClick()}
     >
       Replay

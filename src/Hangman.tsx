@@ -1,6 +1,8 @@
 import { useState } from "react";
-import "./App.css";
 import getRandomWord from "./randomWordGenerator";
+import Title from "./components/Title";
+import Description from "./components/Description";
+import ReplayButton from "./components/ReplayButton";
 
 type WordObject = {
   index: number;
@@ -59,16 +61,19 @@ const checkWin = (wordArray: WordObject[]): boolean => {
   return isWin;
 };
 
-const HangmanWord: React.FC<{ wordArray: WordObject[] }> = ({ wordArray }) => {
+const HangmanWord: React.FC<{ className: string; wordArray: WordObject[] }> = ({
+  className,
+  wordArray,
+}) => {
   return (
-    <div className="hangman-word">
+    <div className={`flex flex-row justify-center ${className}`}>
       {wordArray.map(({ index, letter, guessed }) =>
         guessed ? (
-          <h1 key={index} className="word-space">
+          <h1 key={index} className="mr-5 font-extrabold">
             {letter}
           </h1>
         ) : (
-          <h1 key={index} className="word-space">
+          <h1 key={index} className="mr-5 font-extrabold">
             _
           </h1>
         )
@@ -78,17 +83,24 @@ const HangmanWord: React.FC<{ wordArray: WordObject[] }> = ({ wordArray }) => {
 };
 
 const Keyboard: React.FC<{
+  className: string;
   keyboardArray: KeyboardObject[];
   handleKeyClick: (index: number) => void;
-}> = ({ keyboardArray, handleKeyClick }) => {
+}> = ({ className, keyboardArray, handleKeyClick }) => {
   return (
-    <div className="keyboard">
+    <div className={className}>
       {keyboardArray.map(({ index, letter, guessed, inWord }) => (
         <button
           key={index}
           onClick={() => handleKeyClick(index)}
-          className={`keyboard-button ${
-            guessed && inWord ? "green" : guessed && !inWord ? "red" : ""
+          className={`text-black mr-2 mb-2 hover:bg-blue-200 aspect-square w-12 md:w-16 rounded-2xl ${
+            guessed && inWord
+              ? " bg-emerald-400 pointer-events-none	"
+              : guessed && !inWord
+              ? " bg-rose-400 pointer-events-none	"
+              : !guessed
+              ? "bg-white"
+              : ""
           }`}
         >
           {letter}
@@ -151,28 +163,32 @@ const Hangman: React.FC = () => {
     setKeyboardArray(createKeyboardArray(word));
     setAttemptsLeft(11);
   };
+
   return (
-    <div>
-      <h1>Guess the slang</h1>
+    <div className="md:px-28 xl:px-60 px-3">
+      <Title text="Guess the slang" />
 
       {isWin ? (
         <>
-          <h3>Congratulations!</h3>
-          <button onClick={() => handleReplayClick()}>Replay</button>
+          <Description text="Congratulations!" />
+          <ReplayButton handleReplayClick={handleReplayClick} />
         </>
       ) : (
-        <h3>Wrong guesses left: {attemptsLeft}</h3>
+        <Description text={`Wrong guesses left: ${attemptsLeft}`} />
       )}
 
       {isLost && (
         <>
-          <h3>GAME OVER</h3>
-          <button onClick={() => handleReplayClick()}>Replay</button>
+          <Description text="GAME OVER" />
+          <ReplayButton handleReplayClick={handleReplayClick} />
         </>
       )}
-
-      <HangmanWord wordArray={wordArray} />
-      <Keyboard keyboardArray={keyboardArray} handleKeyClick={handleKeyClick} />
+      <HangmanWord className=" mt-24" wordArray={wordArray} />
+      <Keyboard
+        className="mt-10"
+        keyboardArray={keyboardArray}
+        handleKeyClick={handleKeyClick}
+      />
     </div>
   );
 };
