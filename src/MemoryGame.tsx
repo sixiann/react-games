@@ -1,6 +1,8 @@
 import { useState } from "react";
-import "./App.css";
 import getRandomImages from "./imageArrayGenerator";
+import ReplayButton from "./components/ReplayButton";
+import Title from "./components/Title";
+import Description from "./components/Description";
 
 import lodash from "lodash";
 
@@ -58,7 +60,7 @@ const MemoryGame = () => {
     }
   }
 
-  function handleReplayClick():void{
+  function handleReplayClick(): void {
     const images = createImageArray(getRandomImages());
     setImageArray(images);
     setPrevImage(null);
@@ -67,23 +69,27 @@ const MemoryGame = () => {
 
   return (
     <>
-      <h1>Memory Game</h1>
-      {isWin && 
-      (<>
-      <h2> Congratulations!</h2>
-      <button 
-      className="replay"
-      onClick = {() => handleReplayClick()}>Replay</button>
-      </>
-      )
-      }
-      <div className="grid-container">
+      <Title text="Memory Game"/>
+      <Description text="Test your memory by matching the cards"/>
+      {isWin && (
+        <div className="mt-4">
+          <Description text="Congratulations"/>
+          <ReplayButton handleReplayClick={handleReplayClick} />
+        </div>
+      )}
+      
+      <div className="mt-6 mx-auto grid grid-cols-3 md:grid-cols-4 gap-4 w-5/6 md:w-3/6 auto-cols-max">
         {imageArray.map(({ id, img, flipped }) =>
           flipped ? (
-            <img src={img} className="square image"></img>
+            <img
+              key={id}
+              src={img}
+              className="object-cover aspect-square rounded-md"
+            ></img>
           ) : (
             <button
-              className="square button"
+              key={id}
+              className=" bg-pink-300 hover:bg-pink-400 hover:border-0 aspect-square	"
               onClick={() => handleButtonClick({ id, img, flipped })}
             ></button>
           )
