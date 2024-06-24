@@ -2,6 +2,7 @@ import { useState } from "react";
 import Title from "./components/Title";
 import Description from "./components/Description";
 import ReplayButton from "./components/ReplayButton";
+import getRandomWord from "./utils/wordleWords";
 
 type WordObject = {
   index: number;
@@ -22,7 +23,8 @@ enum GameState {
   Lose = "lose"
 }
 
-const createWordArray = (word: string): WordObject[][] => {
+const createWordArray = (): WordObject[][] => {
+  const word = getRandomWord();
   const wordArray: string[] = word.split("");
   const newWordArray: WordObject[][] = Array.from({ length: 5 }, () =>
     Array.from({ length: 5 }, (_, index) => ({
@@ -129,19 +131,16 @@ const Keyboard: React.FC<{
   );
 };
 
+
 const Wordle: React.FC = () => {
-  const word = "hello";
-  const newWordArray = createWordArray(word);
-
-  const [wordArray, setWordArray] = useState<WordObject[][]>(newWordArray);
+  const [wordArray, setWordArray] = useState<WordObject[][]>(createWordArray());
   const [gameState, setGameState] = useState<GameState>(GameState.Neutral);
-
+  const word = wordArray[0].map(cell => cell.letter).join('');
   const [row, setRow] = useState<number>(0);
   const [col, setCol] = useState<number>(0);
   const [index, setIndex] = useState<number>(0);
 
   const handleKeyClick = (key: KeyboardObject): void => {
-    console.log(row, col);
     const newWordArray = wordArray.slice();
     if (key.indexesInWord.includes(col)) {
       newWordArray[row][col].state = "guessedRightPosition";
@@ -173,8 +172,7 @@ const Wordle: React.FC = () => {
   };
 
   const handleReplayClick = (): void => {
-    const newWord = "abcde";
-    setWordArray(createWordArray(newWord));
+    setWordArray(createWordArray());
     setGameState(GameState.Neutral);
     setRow(0);
     setCol(0);
@@ -183,7 +181,7 @@ const Wordle: React.FC = () => {
   return (
     <div className="md:px-28 xl:px-60 px-3">
       <Title text="Wordle" />
-      <Description text="Guess the 5 letter word" />
+      <Description text="Guess the 5 letter celebrity name" />
       {gameState === "win" && (
         <>
           <Description text="Congratulations!" />

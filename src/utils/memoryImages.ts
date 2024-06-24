@@ -1,5 +1,4 @@
-
-import lodash from "lodash";
+import getRandom from "./getRandom";
 
 const images:string[] = [
     "https://media.allure.com/photos/65d8f1e8e923c6a4feaf9a02/16:9/w_2560%2Cc_limit/dua%2520lipa.jpg",
@@ -24,15 +23,10 @@ const images:string[] = [
     "https://www.byrdie.com/thmb/6xAGxrlcGPG0GlL5UgNKQe_Y3gY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/meganhair3-ec021fd767b440489b85cda948b70fc0.jpg",
     "https://www.billboard.com/wp-content/uploads/2024/03/Megan-Thee-Stallion-mean-girls-billboard-1548.jpg?w=942&h=623&crop=1",
     "https://m.media-amazon.com/images/I/71w91Q9hhPL._AC_UF1000,1000_QL80_.jpg",
-
-
-
 ]
 
 const getRandomImages = ():string[] => {
-    const shuffledImages = lodash.shuffle(images);
-    const randomImages = shuffledImages.slice(0, 6);
-    return randomImages;
+    return getRandom(images, 6);
 }
 
 export default getRandomImages;

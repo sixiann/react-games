@@ -1,3 +1,5 @@
+import getRandom from "./getRandom";
+
 const words: string[] = [
   "slay",
   "mother",
@@ -33,9 +35,16 @@ const words: string[] = [
   "tea"
 ];
 
-const getRandomWord = (): string => {
-  const randomIndex = Math.floor(Math.random() * words.length);
-  return words[randomIndex];
-};
+// const getRandomWord = (): string => {
+//   const randomIndex = Math.floor(Math.random() * words.length);
+//   return words[randomIndex];
+// };
+
+// export default getRandomWord;
+
+
+const getRandomWord = ():string => {
+  return getRandom(words, 1)[0];
+}
 
 export default getRandomWord;

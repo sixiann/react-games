@@ -1,5 +1,5 @@
 import { useState } from "react";
-import getRandomWord from "./randomWordGenerator";
+import getRandomWord from "./utils/hangmanWords";
 import Title from "./components/Title";
 import Description from "./components/Description";
 import ReplayButton from "./components/ReplayButton";

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import getRandomImages from "./imageArrayGenerator";
+import getRandomImages from "./utils/memoryImages";
 import ReplayButton from "./components/ReplayButton";
 import Title from "./components/Title";
 import Description from "./components/Description";
