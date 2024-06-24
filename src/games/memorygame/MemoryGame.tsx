@@ -1,16 +1,10 @@
 import { useState } from "react";
-import getRandomImages from "./utils/memoryImages";
-import ReplayButton from "./components/ReplayButton";
-import Title from "./components/Title";
-import Description from "./components/Description";
-
+import getRandomImages from "./memoryImages";
+import ReplayButton from "../../components/ReplayButton";
+import Title from "../../components/Title";
+import Description from "../../components/Description";
+import { ImageObject } from "../../types/MemoryGameTypes";
 import lodash from "lodash";
-
-type ImageObject = {
-  id: number;
-  img: string;
-  flipped: boolean;
-};
 
 function createImageArray(images: string[]): ImageObject[] {
   const newImageArray = lodash.shuffle([...images, ...images]);
@@ -73,7 +67,7 @@ const MemoryGame = () => {
       <Description text="Test your memory by matching the cards"/>
       {isWin && (
         <div className="mt-4">
-          <Description text="Congratulations"/>
+          <Description text="Congratulations!"/>
           <ReplayButton handleReplayClick={handleReplayClick} />
         </div>
       )}

@@ -1,4 +1,4 @@
-import getRandom from "./getRandom";
+import lodash from 'lodash';
 
 const images:string[] = [
     "https://media.allure.com/photos/65d8f1e8e923c6a4feaf9a02/16:9/w_2560%2Cc_limit/dua%2520lipa.jpg",
@@ -26,7 +26,8 @@ const images:string[] = [
 ]
 
 const getRandomImages = ():string[] => {
-    return getRandom(images, 6);
+    const shuffled = lodash.shuffle(images);
+    return shuffled.slice(0, 6);
 }
 
 export default getRandomImages;

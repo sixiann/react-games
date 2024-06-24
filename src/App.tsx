@@ -1,6 +1,6 @@
-import MemoryGame from "./MemoryGame";
-import Hangman from "./Hangman";
-import Wordle from "./Wordle";
+import MemoryGame from "./games/memorygame/MemoryGame";
+import Hangman from "./games/hangman/Hangman";
+import Wordle from "./games/wordle/Wordle";
 import { useState } from "react";
 
 
