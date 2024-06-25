@@ -25,6 +25,7 @@ const App: React.FC = () => {
       <RadioButtons
         gameComponents={gameComponents}
         setSelectedGame={setSelectedGame}
+        selectedGame={selectedGame}
       />
       <MobileMenu
         gameComponents={gameComponents}
